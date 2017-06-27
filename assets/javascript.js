@@ -1,12 +1,12 @@
+
 var animals = ["dog", "cat", "rabbit", "hamster", "skunk", "goldfish", "bird", "ferret", "turtle", "sugar glider", "chincilla", "hedgehog", "hermit crab", "gerbil", "pygmy" "goat", "chicken", "capybara", "teacup pig", "serval", "salamander", "frog"]
 
 function renderButtons() {
 far (var i = 0; i < animals.length; i++){
 var newButton = $("<button>");
-$('#animalButtons').append(newButton);
+$("#animalButtons").append(newButton);
 newButton.text
 }
-
 
   $("#addAnimal").on("click", function(event) {
         // event.preventDefault() prevents the form from trying to submit itself.
@@ -22,14 +22,22 @@ newButton.text
         renderButtons();
       });
 
+    var queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
 
-    $.ajax({
+     $.ajax({
       url: queryURL,
       method: 'GET'
     }).done(function(response) {
       console.log(response);
     });
 
+if (state === "still"){
+$(this).attr("src", $(this).attr("data-animate"));
+$(this).attr("data-state", "animate");
+} else {
+  $(this).attr("src", $(this).attr("data-still"));
+  $(this).attr("data-state", "still");
+}
 
 
 
