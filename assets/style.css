@@ -1,0 +1,9 @@
+body {
+	background-color: grey
+}
+button {
+	color: teal;
+}
+#animal-form{
+	float: right;
+}
